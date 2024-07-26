@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOS Configuration Steps</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            color: #ffffff;
+        }
+        a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .quicklinks table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .quicklinks th, .quicklinks td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+        }
+        .quicklinks th {
+            background-color: #333;
+        }
+        .quicklinks td {
+            background-color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BIOS Configuration Steps</h1>
+        <img src="images/title/Bios.webp" alt="BIOS Title">
+
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Section Breakdown:</h2>
+        <ul>
+            <li><a href="#step-1-access-the-bios">Access the BIOS</a></li>
+            <li><a href="#step-2-overview-page">Overview Page</a></li>
+            <li><a href="#step-3-disable-secure-boot">Disable Secure Boot</a></li>
+            <li><a href="#step-4-change-sata-operation">Change SATA Operation</a></li>
+            <li><a href="#step-5-apply-changes">Apply Changes</a></li>
+            <li><a href="#step-6-exit-bios">Exit BIOS</a></li>
+            <li><a href="#step-7-select-boot-device">Select Boot Device</a></li>
+            <li><a href="#quicklinks">QuickLinks</a></li>
+        </ul>
+
+        <hr>
+
+        <p>This guide will help you configure the BIOS settings on your Dell Precision 3480.</p>
+
+        <h2 id="step-1-access-the-bios">Step 1: Access the BIOS</h2>
+        <ol>
+            <li>Restart your computer.</li>
+            <li>Press <strong>F2</strong> repeatedly to enter the BIOS setup.</li>
+        </ol>
+
+        <h2 id="step-2-overview-page">Step 2: Overview Page</h2>
+        <p>You should see an overview page with your system information.</p>
+        <img src="images/boot/StartBios.jpg" alt="Overview">
+
+        <h2 id="step-3-disable-secure-boot">Step 3: Disable Secure Boot</h2>
+        <ol>
+            <li>Navigate to the <strong>Boot Configuration</strong> tab.</li>
+            <li>Locate the <strong>Secure Boot</strong> section.</li>
+            <li>Click on <strong>Secure Boot</strong> to disable it.</li>
+            <li>Confirm the changes by selecting <strong>Yes</strong>.</li>
+        </ol>
+        <img src="images/boot/boot_configuration.jpg" alt="Boot Configuration">
+        <img src="images/boot/turning_off_secure_boot.jpg" alt="Turn Off Secure Boot">
+        <img src="images/boot/approving_disableing_secureboot.jpg" alt="Disable Secure Boot">
+
+        <h2 id="step-4-change-sata-operation">Step 4: Change SATA Operation</h2>
+        <ol>
+            <li>Navigate to the <strong>Storage</strong> tab.</li>
+            <li>Select <strong>SATA/NVMe Operation</strong>.</li>
+            <li>Change the setting from <strong>RAID On</strong> to <strong>AHCI/NVMe</strong>.</li>
+            <li>Confirm the changes by selecting <strong>Yes</strong>.</li>
+        </ol>
+        <img src="images/boot/switching_from_raid_nvmi.jpg" alt="Storage Settings">
+        <img src="images/boot/selecting_nvmi.jpg" alt="Change SATA Operation">
+        <img src="images/boot/approving_switch_to_nvmi.jpg" alt="Approve SATA Change">
+
+        <h2 id="step-5-apply-changes">Step 5: Apply Changes</h2>
+        <p>After making all changes, click <strong>Apply Changes</strong>.</p>
+        <img src="images/boot/applying_changes.jpg" alt="Apply Changes">
+
+        <h2 id="step-6-exit-bios">Step 6: Exit BIOS</h2>
+        <ol>
+            <li>Click <strong>Exit</strong> to leave the BIOS setup.</li>
+            <li>This will Restart your computer.</li>
+        </ol>
+        <img src="images/boot/exit_bois.jpg" alt="Exit BIOS">
+
+        <h2 id="step-7-select-boot-device">Step 7: Select Boot Device</h2>
+        <ol>
+            <li>Press <strong>F12</strong> repeatedly to enter the BIOS setup.</li>
+            <li>Navigate to the <strong>One-Time Boot Settings</strong> tab.</li>
+            <li>Select <strong>UEFI USB Flash Memory</strong> as the boot device.</li>
+            <li>Double Click on the <strong>UEFI USB Flash Memory</strong> <em>(you can also press Enter once it's selected)</em>.</li>
+        </ol>
+        <img src="images/boot/selecting_usb_for_boot.jpg" alt="Select Boot Device">
+
+        <p>Your BIOS configuration should now be complete.</p>
+
+        <h2 id="quicklinks">QuickLinks:</h2>
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

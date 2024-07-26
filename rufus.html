@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up a USB for Dual-Booting</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            color: #ffffff;
+        }
+        a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .quicklinks table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .quicklinks th, .quicklinks td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+        }
+        .quicklinks th {
+            background-color: #333;
+        }
+        .quicklinks td {
+            background-color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Setting up a USB for Dual-Booting</h1>
+        <img src="images/title/Rufus.webp" alt="Rufus Title">
+
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Section Breakdown:</h2>
+        <ul>
+            <li><a href="#what-you-need-for-installation">What You Need for Installation</a></li>
+            <li><a href="#required-software-ubuntu--rufus">Required Software (Ubuntu & Rufus)</a></li>
+            <li><a href="#steps-to-dual-boot-linux-and-windows-11">Steps to Dual Boot Linux and Windows 11</a></li>
+            <ul>
+                <li><a href="#1-prepare-the-usb-drive-with-rufus">Prepare the USB Drive with Rufus</a></li>
+            </ul>
+            <li><a href="#quicklinks">QuickLinks</a></li>
+        </ul>
+
+        <h2 id="what-you-need-for-installation">What You Need for Installation:</h2>
+        <ul>
+            <li>A computer running <strong>Windows 10/11</strong></li>
+            <li>A <strong>USB Flash drive</strong> (8GB or larger)</li>
+            <li>A Linux distribution (<strong>Ubuntu</strong>)</li>
+        </ul>
+
+        <h2 id="required-software-ubuntu--rufus">Required Software (Ubuntu & Rufus)</h2>
+        <ul>
+            <li>Download and install <a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe"><strong>Rufus</strong></a> for your operating system.</li>
+            <li>Download the <a href="https://releases.ubuntu.com/22.04/ubuntu-22.04.4-desktop-amd64.iso"><strong>Ubuntu</strong></a> ISO file.</li>
+            <li>Download <a href="downloads/CACSetup.zip"><strong>CACkey</strong></a> and save it to the USB drive.</li>
+        </ul>
+
+        <h2 id="steps-to-dual-boot-linux-and-windows-11">Steps to Dual Boot Linux and Windows 11</h2>
+
+        <h3 id="1-prepare-the-usb-drive-with-rufus">1. Prepare the USB Drive with Rufus</h3>
+        <ol>
+            <li>Download and install <strong>Rufus</strong> on your operating system.</li>
+            <li>Insert a <strong>USB drive</strong> into your computer and open <strong>Rufus</strong>.</li>
+            <img src="images/rufus/open_rufus.png" alt="Open Rufus">
+            <li>In Rufus, <strong>select your USB drive</strong> using the <strong>Device</strong> dropdown menu, then Click <strong>SELECT</strong> and choose the <strong>Ubuntu ISO file</strong> you downloaded.</li>
+            <img src="images/rufus/select_usb.png" alt="Select USB Drive">
+            <img src="images/rufus/selecting_iso_file.png" alt="Select ISO File">
+            <li><strong>Select the GPT partition scheme</strong> and Click <strong>START</strong> to write the OS to the USB drive. <em>(GPT is the latest partition scheme and necessary for installing Ubuntu on a UEFI system.)</em></li>
+            <img src="images/rufus/switch_from_mgr_to_gpt.png" alt="Select GPT Partition Scheme">
+            <li>When prompted, <strong>select "Write in ISO image mode"</strong> and Click <strong>OK</strong>.</li>
+            <img src="images/rufus/verify_image.png" alt="Write in ISO Image Mode">
+            <li>Carefully read the prompts to ensure that the Linux OS will be written to the correct drive then Click <strong>Ok</strong>.</li>
+            <img src="images/rufus/verify_two.png" alt="Verify Drive">
+            <img src="images/rufus/formating.png" alt="Formatting USB Drive">
+            <li>Once the process is complete, Click <strong>CLOSE</strong> to exit Rufus and remove the USB drive from your computer. <em>(This step is only necessary if you are preparing the USB on a different machine.)</em></li>
+            <img src="images/rufus/Close.png" alt="Close Rufus">
+        </ol>
+
+        <p>By following these steps, you'll be ready to configure your BIOS and proceed with the installation of Ubuntu alongside Windows 11. Click on the link above to continue with the BIOS configuration.</p>
+
+        <h2 id="quicklinks">QuickLinks:</h2>
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Dual Boot Ubuntu</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            color: #ffffff;
+        }
+        a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .quicklinks table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .quicklinks th, .quicklinks td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+        }
+        .quicklinks th {
+            background-color: #333;
+        }
+        .quicklinks td {
+            background-color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How to Dual Boot Ubuntu</h1>
+        <img src="images/title/Ubuntu.webp" alt="Ubuntu Title">
+
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Section Breakdown:</h2>
+        <ul>
+            <li><a href="#boot-from-usb">Boot from USB</a></li>
+            <li><a href="#getting-the-installer-updated">Getting the Installer Updated</a></li>
+            <ul>
+                <li><a href="#step-1-update-ubuntu-installation">Update Ubuntu Installation</a></li>
+                <li><a href="#step-2-setting-up-wifi-for-installer">Setting up WiFi for Installer</a></li>
+            </ul>
+            <li><a href="#setting-up-your-dual-boot">Setting up your Dual Boot</a></li>
+            <ul>
+                <li><a href="#step-1-start-ubuntu-installation">Start Ubuntu Installation</a></li>
+                <li><a href="#step-2-reference-getting-the-installer-ready">Reference Getting the Installer Ready</a></li>
+                <li><a href="#step-3-ubuntu-interactive-installation">Ubuntu Interactive Installation</a></li>
+                <li><a href="#step-4-selection-dual-boot">Selection Dual-Boot</a></li>
+                <li><a href="#step-5-setting-up-a-user">Setting up a user</a></li>
+                <li><a href="#step-6-setting-the-time-zone">Setting the time zone</a></li>
+                <li><a href="#step-7-installing-your-settings">Installing your settings</a></li>
+                <li><a href="#step-11-post-installation">Post Installation</a></li>
+                <li><a href="#step-12-final-steps">Final Steps</a></li>
+                <li><a href="#step-13-grub-boot-loader">GRUB Boot Loader</a></li>
+            </ul>
+            <li><a href="#quicklinks">QuickLinks</a></li>
+        </ul>
+
+        <h2 id="boot-from-usb">Boot from USB</h2>
+        <ol>
+            <li>Insert the bootable USB drive into the computer.</li>
+            <li>Restart the computer and boot from the USB drive.</li>
+            <li>Select <strong>Try or Install Ubuntu</strong> from the GRUB menu.</li>
+        </ol>
+        <img src="images/ubuntu/Step1.jpg" alt="Try or Install Ubuntu">
+
+        <h2 id="getting-the-installer-updated">Getting the Installer Updated:</h2>
+
+        <h3 id="step-1-update-ubuntu-installation">Step 1: Update Ubuntu Installation</h3>
+        <ol>
+            <li>You will get a <strong>Preparing Ubuntu Page</strong>.</li>
+            <img src="images/ubuntu/Step2.png" alt="Install Ubuntu">
+            <li>Choose Your language <strong>English</strong> then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step3.png" alt="Update Installer">
+            <li>Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step4.png" alt="Update Now">
+            <li>Select your Keyboard layout <strong>English (US)</strong> then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step5.png" alt="Choose Language">
+        </ol>
+
+        <h3 id="step-2-setting-up-wifi-for-installer">Step 2: Setting up WiFi for Installer</h3>
+        <ol start="5">
+            <li>Connect to the Internet Select <strong>Connect to a Wi-Fi network</strong> then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step6.png" alt="Accessibility Options">
+            <li>Select your <strong>WiFi Network</strong> then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step7.png" alt="Keyboard Layout">
+            <li>You will get a <strong>Authentication required</strong> request, Fill out your <strong>password</strong> to your Router.</li>
+            <img src="images/ubuntu/Step8.jpg" alt="Connect to Wi-Fi">
+            <li>You will get a <strong>Check-Mark</strong> next to your WiFi selection. Then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step9.png" alt="Authenticate Wi-Fi">
+            <li>Click <strong>Update Now</strong>.</li>
+            <img src="images/ubuntu/Step10.png" alt="Select Timezone">
+            <li>You will see a <strong>downloading window</strong>.</li>
+            <img src="images/ubuntu/Step11.png" alt="Interactive Installation">
+            <li>Click the <strong>Close Installer</strong>.</li>
+            <img src="images/ubuntu/Step12.png" alt="Extended Selection">
+        </ol>
+
+        <h2 id="setting-up-your-dual-boot">Setting up your Dual-Boot</h2>
+
+        <h3 id="step-1-start-ubuntu-installation">Step 1: Start Ubuntu Installation</h3>
+        <ul>
+            <li>Click on either <strong>Installers</strong> from the <strong>Desktop</strong> or <strong>Taskbar</strong>.</li>
+            <img src="images/ubuntu/Step13.png" alt="Third-Party Software">
+        </ul>
+
+        <h3 id="step-2-reference-getting-the-installer-ready">Step 2: Reference Getting the Installer Ready</h3>
+        <ul>
+            <li>Click <strong>Next</strong>.</li>
+        </ul>
+
+        <h3 id="step-3-ubuntu-interactive-installation">Step 3: Ubuntu Interactive Installation</h3>
+        <ul>
+            <li>Click <strong>Interactive installation</strong> and then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step14.png" alt="Install Ubuntu Alongside">
+            <li>Select <strong>Extended selection</strong> and then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step15.png" alt="Partition Selection">
+            <li>Select <strong>Install third-party software for graphics and Wi-Fi hardware</strong> and <strong>Download and install support for additional media formats</strong> and then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step16.png" alt="Create Account">
+        </ul>
+
+        <h3 id="step-4-selection-dual-boot">Step 4: Selection Dual-Boot</h3>
+        <ul>
+            <li>Select <strong>Install Ubuntu alongside Windows 11</strong> and then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step17.png" alt="Review Installation">
+            <li>Click on the drop down for <strong>Select partition</strong> and make sure to <strong>Select the 1.0TB Windows harddrive</strong> you can change the size of the harddrive to what you think you will need. (<strong>500GB</strong>) will split the harddrive in half. Then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step18.png" alt="Installation Progress">
+        </ul>
+
+        <h3 id="step-5-setting-up-a-user">Step 5: Setting up a user</h3>
+        <ul>
+            <li>Fill out the form with the user information you want and provide a password for that user. Then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step19.png" alt="Restart Now">
+        </ul>
+
+        <h3 id="step-6-setting-the-time-zone">Step 6: Setting the time zone</h3>
+        <ul>
+            <li>Select the <strong>time zone</strong> and then Click <strong>Next</strong>.</li>
+            <img src="images/ubuntu/Step20.png" alt="Remove USB">
+        </ul>
+
+        <h3 id="step-7-installing-your-settings">Step 7: Installing your settings</h3>
+        <ul>
+            <li>Click <strong>Install</strong>. If you think you missed a step you can always Click the <strong>Back</strong> button.</li>
+            <img src="images/ubuntu/Step21.png" alt="GRUB Menu">
+        </ul>
+
+        <h3 id="step-11-post-installation">Step 11: Post Installation</h3>
+        <ul>
+            <li>The next screen shows the installation and here you will wait till you get the <strong>Restart now</strong> Screen.</li>
+            <img src="images/ubuntu/Step22.png" alt="Ubuntu Welcome">
+            <img src="images/ubuntu/Step23.png" alt="Ubuntu Restart">
+        </ul>
+
+        <h3 id="step-12-final-steps">Step 12: Final Steps</h3>
+        <ul>
+            <li>You will get a screen to let you know to remove the <strong>USB Drive</strong> once the drive has been removed you can press the <strong>Enter</strong> key.</li>
+            <img src="images/ubuntu/Step24.jpg" alt="Ubuntu USB">
+        </ul>
+
+        <h3 id="step-13-grub-boot-loader">Step 13: GRUB Boot Loader</h3>
+        <ul>
+            <li>Once the computer has restarted you should have a screen like this where you can select between Windows 11 or ubuntu using your <strong>arrow keys</strong>. Select the <strong>Operating system</strong> and Press <strong>Enter</strong>.</li>
+            <img src="images/ubuntu/Step25.jpg" alt="Ubuntu Grub">
+        </ul>
+
+        <p>Congratulations! You have successfully set up a dual-boot system with Ubuntu and Windows 11.</p>
+
+        <h2 id="quicklinks">QuickLinks:</h2>
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

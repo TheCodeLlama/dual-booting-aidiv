@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Set Up Ubuntu for Development</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            color: #ffffff;
+        }
+        a {
+            color: #8ab4f8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .quicklinks table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .quicklinks th, .quicklinks td {
+            border: 1px solid #555;
+            padding: 10px;
+            text-align: center;
+        }
+        .quicklinks th {
+            background-color: #333;
+        }
+        .quicklinks td {
+            background-color: #444;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 0;
+        }
+        code {
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How to Set Up Ubuntu for Development</h1>
+        <img src="images/title/bash.webp" alt="Bash Title">
+
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Section Breakdown:</h2>
+        <ul>
+            <li><a href="#updating-os-and-software">Updating OS and Software</a></li>
+            <ul>
+                <li><a href="#updating-the-os">Updating the OS</a></li>
+            </ul>
+            <li><a href="#adding-an-alias-to-your-bash-profile">Adding an Alias to Your Bash Profile</a></li>
+            <li><a href="#nvm-software">NVM Software</a></li>
+            <ul>
+                <li><a href="#installing-needed-tools">Installing Needed Tools</a></li>
+                <li><a href="#installing-nvm-packages">Installing NVM Packages</a></li>
+            </ul>
+            <li><a href="#installing-ides-for-ubuntu">Installing IDEs for Ubuntu</a></li>
+            <ul>
+                <li><a href="#visual-studio-code">Visual Studio Code</a></li>
+                <li><a href="#intellij-idea-ultimate">IntelliJ IDEA Ultimate</a></li>
+                <li><a href="#postman">Postman</a></li>
+                <li><a href="#zoom">Zoom</a></li>
+                <li><a href="#obsidian">Obsidian</a></li>
+            </ul>
+            <li><a href="#installing-chrome-browser">Installing Chrome-Browser</a></li>
+            <ul>
+                <li><a href="#download-google-chrome-package">Download Google Chrome Package</a></li>
+                <li><a href="#install-chrome-package">Install Chrome Package</a></li>
+                <li><a href="#fix-any-missing-dependencies">Fix any Missing Dependencies</a></li>
+            </ul>
+            <li><a href="#installing-java">Installing Java</a></li>
+            <ul>
+                <li><a href="#download-jdk-packages">Download JDK Packages</a></li>
+                <li><a href="#install-jdk-packages">Install JDK Packages</a></li>
+                <li><a href="#fix-any-missing-dependencies-1">Fix any Missing Dependencies</a></li>
+            </ul>
+            <li><a href="#docker-setup">Docker Setup</a></li>
+            <ul>
+                <li><a href="#add-dockers-official-gpg-key">Add Docker's Official GPG Key</a></li>
+                <li><a href="#add-docker-repository-to-apt-sources">Add Docker Repository to APT Sources</a></li>
+                <li><a href="#install-docker-engine">Install Docker Engine</a></li>
+                <li><a href="#test-docker-installation">Test Docker Installation</a></li>
+                <li><a href="#setup-docker-to-run-without-sudo">Setup Docker to run Without Sudo</a></li>
+                <li><a href="#docker-script">Docker Script</a></li>
+                <ul>
+                    <li><a href="#setting-up-a-script-to-cleanup-docker">Setting up a Script to Cleanup Docker</a></li>
+                </ul>
+            </ul>
+            <li><a href="#setting-up-the-cackey">Setting up the CACKey</a></li>
+            <ul>
+                <li><a href="#setup-for-certs">Setup for Certs</a></li>
+            </ul>
+            <li><a href="#setting-up-git-global-configuration">Setting Up Git Global Configuration</a></li>
+            <ul>
+                <li><a href="#step-1-set-up-git-global-configurations">Set Up Git Global Configurations</a></li>
+                <li><a href="#configure-git-to-use-your-gpg-key">Configure Git to Sign Commits with GPG</a></li>
+                <ul>
+                    <li><a href="#generate-a-gpg-key">Generate a GPG Key</a></li>
+                    <li><a href="#configure-git-to-use-your-gpg-key">Configure Git to Use Your GPG Key</a></li>
+                </ul>
+            </ul>
+            <li><a href="#step-3-verify-your-configuration">Verify Your Configuration</a></li>
+            <li><a href="#vpn-setup">VPN Setup</a></li>
+            <ul>
+                <li><a href="#downloading-the-vpn-configuration-file">Downloading the VPN Configuration File</a></li>
+            </ul>
+            <li><a href="#quicklinks">QuickLinks</a></li>
+        </ul>
+
+        <h2 id="updating-os-and-software">Updating OS and Software</h2>
+        <h3 id="updating-the-os">Updating the OS</h3>
+        <p>Updating and upgrading the operating system, and cleaning up unnecessary files:</p>
+        <pre><code># Updating the OS
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove && sudo apt autoclean
+</code></pre>
+
+        <h2 id="adding-an-alias-to-your-bash-profile">Adding an Alias to Your Bash Profile</h2>
+        <p>Create a shortcut command for updating the system:</p>
+        <ol>
+            <li>Open your Bash profile in <code>nano</code>:
+                <pre><code>sudo nano ~/.bashrc
+</code></pre>
+            </li>
+            <li>Add this line to the end of the file:
+                <pre><code>alias update='sudo apt update && sudo apt upgrade -y && sudo apt autoremove && sudo apt autoclean'
+</code></pre>
+            </li>
+            <li>Save and close the file, then apply the changes:
+                <pre><code>source ~/.bashrc
+</code></pre>
+            </li>
+        </ol>
+
+        <h2 id="nvm-software">NVM & Git Software</h2>
+        <h3 id="installing-needed-tools">Installing Needed Tools</h3>
+        <p>Install essential tools and packages:</p>
+        <pre><code>sudo apt install -y build-essential wget curl gnupg
+sudo apt install -y python3 python3-pip
+sudo apt install -y maven
+</code></pre>
+
+        <h3 id="installing-git">Installing GIT with current Release</h3>
+        <p>Install Git:</p>
+        <pre><code># For Ubuntu, this PPA provides the latest stable upstream Git version
+sudo add-apt-repository ppa:git-core/ppa 
+sudo apt update; 
+sudo apt install git
+</code></pre>
+
+        <h3 id="installing-nvm-packages">Installing NVM Packages</h3>
+        <p>Install NVM (Node Version Manager):</p>
+        <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+</code></pre>
+        <p>Reset bash after install:</p>
+        <pre><code>source ~/.bashrc
+</code></pre>
+        <p>Then install the latest LTS version of Node.js:</p>
+        <pre><code>nvm install --lts
+</code></pre>
+
+        <h2 id="installing-ides-for-ubuntu">Installing IDEs for Ubuntu</h2>
+        <h3 id="visual-studio-code">Visual Studio Code</h3>
+        <p>Install VSCode using Snap:</p>
+        <pre><code>sudo snap install code --classic
+</code></pre>
+
+        <h3 id="intellij-idea-ultimate">IntelliJ IDEA Ultimate</h3>
+        <p>Install IntelliJ IDEA Ultimate using Snap:</p>
+        <pre><code>sudo snap install intellij-idea-ultimate --classic
+</code></pre>
+
+        <h3 id="postman">Postman</h3>
+        <p>Install Postman using Snap:</p>
+        <pre><code>sudo snap install postman
+</code></pre>
+
+        <h3 id="zoom">Zoom</h3>
+        <p>Install Zoom using Snap:</p>
+        <pre><code>sudo snap install zoom-client
+</code></pre>
+
+        <h3 id="obsidian">Obsidian</h3>
+        <p><em>Optional</em> Install Obsidian using Snap: (Note Taking App)</p>
+        <pre><code>sudo snap install obsidian
+</code></pre>
+
+        <h2 id="installing-chrome-browser">Installing Chrome-Browser</h2>
+        <h3 id="download-google-chrome-package">Download Google Chrome Package</h3>
+        <p>Download Chrome package:</p>
+        <pre><code>wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+</code></pre>
+        <h3 id="install-chrome-package">Install Chrome Package</h3>
+        <p>Install and download Chrome:</p>
+        <pre><code>sudo dpkg -i google-chrome-stable_current_amd64.deb
+</code></pre>
+        <h3 id="fix-any-missing-dependencies">Fix any Missing Dependencies</h3>
+        <p>Resolve any missing dependencies:</p>
+        <pre><code>sudo apt install -f
+</code></pre>
+        <p>Reconfigure any packages if necessary:</p>
+        <pre><code>sudo dpkg --configure -a
+</code></pre>
+
+        <h2 id="installing-java">Installing Java</h2>
+        <h3 id="download-jdk-packages">Download JDK packages</h3>
+        <p>Download JDK 22 and JDK 17 packages:</p>
+        <pre><code>curl -O https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.deb
+curl -O https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
+</code></pre>
+        <h3 id="install-jdk-packages">Install JDK Packages</h3>
+        <p>Install and downloaded JDK packages:</p>
+        <pre><code>sudo dpkg -i jdk-22_linux-x64_bin.deb
+sudo dpkg -i jdk-17_linux-x64_bin.deb
+</code></pre>
+        <h3 id="fix-any-missing-dependencies-1">Fix any Missing Dependencies</h3>
+        <p>Resolve any missing dependencies:</p>
+        <pre><code>sudo apt install -f
+</code></pre>
+        <p>Reconfigure any packages if necessary:</p>
+        <pre><code>sudo dpkg --configure -a
+</code></pre>
+
+        <h2 id="docker-setup">Docker Setup</h2>
+        <h3 id="add-dockers-official-gpg-key">Add Docker's Official GPG Key</h3>
+        <p>Add Docker's GPG key:</p>
+        <pre><code>sudo apt update
+sudo apt install ca-certificates
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+</code></pre>
+        <h3 id="add-docker-repository-to-apt-sources">Add Docker Repository to APT Sources</h3>
+        <p>Add the Docker repository:</p>
+        <pre><code>echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+</code></pre>
+        <h3 id="install-docker-engine">Install Docker Engine</h3>
+        <p>Update package list and install Docker:</p>
+        <pre><code>sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+        <h3 id="test-docker-installation">Test Docker Installation</h3>
+        <p>Run a test Docker container:</p>
+        <pre><code>sudo docker run hello-world
+</code></pre>
+        <h3 id="setup-docker-to-run-without-sudo">Setup Docker to Run Without <code>sudo</code></h3>
+        <p>Configure Docker to run without <code>sudo</code>:</p>
+        <ol>
+            <li>Create the Docker group <em>(if not already created)</em>:
+                <pre><code>sudo groupadd docker
+</code></pre>
+            </li>
+            <li>Add your user to the Docker group <em>(replace <code>coder</code> with your username)</em>:
+                <pre><code>sudo usermod -aG docker coder
+</code></pre>
+            </li>
+            <li>Apply the new group membership:
+                <pre><code>newgrp docker
+</code></pre>
+            </li>
+            <li>Verify the setup:
+                <pre><code>docker run hello-world
+</code></pre>
+            </li>
+        </ol>
+
+        <h2 id="docker-script">Docker Script</h2>
+        <h3 id="setting-up-a-script-to-cleanup-docker">Setting up a Script to Cleanup Docker</h3>
+        <ol>
+            <li>Create the Shell Script:
+                <pre><code>nano cleanup.sh
+</code></pre>
+            </li>
+            <li>Write your script and save the file:
+                <pre><code>#!/bin/bash
+sudo docker stop $(sudo docker ps -aq)
+sudo docker rm $(sudo docker ps -aq)
+sudo docker rmi $(sudo docker images -q)
+sudo docker volume rm $(sudo docker volume ls -q)
+sudo docker network rm $(sudo docker network ls -q)
+</code></pre>
+            </li>
+            <li>Make the Script Executable:
+                <pre><code>chmod +x cleanup.sh
+</code></pre>
+            </li>
+            <li>Run the Script:
+                <pre><code>sudo ./cleanup.sh
+</code></pre>
+            </li>
+        </ol>
+        <p>You can have this saved in any directory and use it.</p>
+
+        <h2 id="setting-up-the-cackey">Setting up the CACKey</h2>
+        <h3 id="setup-for-certs">Setup for Certs</h3>
+        <p>Click link to download: <a href="downloads/CACSetup.zip">CACKey</a></p>
+        <p><em>(If you have it downloaded and saved to a USB, you can drag and drop the file into the Downloads folder)</em></p>
+        <ol>
+            <li>Download the <strong>CACSetup.zip</strong>.</li>
+            <li>Unzip the file:
+                <pre><code># Depending on where you downloaded the file:
+unzip ~/Downloads/CACSetup.zip
+</code></pre>
+            </li>
+            <li>There is a how-to-guide in the CACSetup directory.</li>
+            <li>After running <code>sudo ~/cacsetup.sh</code> insert the <code>CAC Card</code> and run the command again <code>sudo ~/cacsetup.sh</code></li>
+            <li>Your <code>CAC Card</code> will be ready to go.</li>
+        </ol>
+
+        <h2 id="setting-up-git-global-configuration">Setting Up Git Global Configuration</h2>
+        <h3 id="step-1-set-up-git-global-configurations">Step 1: Set Up Git Global Configurations</h3>
+        <p>Set your Git global username and email:</p>
+        <pre><code>git config --global user.name "Gitlab User Name"
+git config --global user.email "Gitlab Email"
+</code></pre>
+
+        <h3 id="configure-git-to-use-your-gpg-key">Step 2: Configure Git to Sign Commits with GPG</h3>
+        <h4 id="generate-a-gpg-key">Generate a GPG Key</h4>
+        <ol>
+            <li>Generate a new GPG key:
+                <pre><code>gpg --full-generate-key
+</code></pre>
+                <ul>
+                    <li>Select the key type <em>(RSA and RSA recommended)</em>.</li>
+                    <li>Choose the key size <em>(4096 bits recommended)</em>.</li>
+                    <li>Set the key expiration.</li>
+                    <li>Provide your name and email when prompted.</li>
+                    <li>Set a passphrase for your GPG key.</li>
+                </ul>
+            </li>
+            <li>List your GPG keys to find the key ID:
+                <pre><code>gpg --list-secret-keys --keyid-format LONG
+</code></pre>
+                <p>Look for the line starting with <code>sec</code> and note the key ID (a 16-character hexadecimal string).</p>
+            </li>
+            <li>Copy your GPG key to the clipboard <em>(<code>Ctrl+Shift+C</code>)</em>:
+                <pre><code>gpg --armor --export your_key_id
+</code></pre>
+            </li>
+            <li>Add the GPG key to your GitLab account.</li>
+        </ol>
+
+        <h4 id="configure-git-to-use-your-gpg-key">Configure Git to Use Your GPG Key</h4>
+        <ol>
+            <li>Set the signing key in Git:
+                <pre><code>git config --global user.signingkey your_key_id
+</code></pre>
+            </li>
+            <li>Enable GPG signing for all commits:
+                <pre><code>git config --global commit.gpgsign true
+</code></pre>
+            </li>
+            <li>Disable SSL verification:
+                <pre><code>git config --global http.sslVerify false
+</code></pre>
+            </li>
+            <li>Storing GPG credentials:
+                <pre><code>git config --global credential.helper store
+</code></pre>
+            </li>
+        </ol>
+
+        <h3 id="step-3-verify-your-configuration">Step 3: Verify Your Configuration</h3>
+        <p>To see all your global configurations:</p>
+        <pre><code>git config --global --list
+</code></pre>
+
+        <h2 id="vpn-setup">VPN Setup</h2>
+        <h3 id="downloading-the-vpn-configuration-file">Downloading the VPN Configuration File</h3>
+        <ol>
+            <li>Go to the VPN page.</li>
+            <li>Click on the <code>VPN</code> button.</li>
+            <li>You will get a pop-up, Click the <code>Start</code> button.</li>
+            <li>Another pop-up will show and then Click the <code>Check Box</code> and then Click <code>Open xdg-open</code>.</li>
+            <li>Click <code>More options</code>.</li>
+            <li>Click <code>Install/Reinstall Network Access Application</code>.</li>
+            <li>Click <code>64 bit .deb (Ubuntu/Debian)</code>, then Click <code>Download</code>.</li>
+            <li>You will download a file called <code>linux_f5vpn.x86_64.deb</code>.</li>
+            <li>Go to your <code>Downloads</code> directory:
+                <pre><code>cd ~/Downloads
+sudo dpkg -i linux_f5vpn.x86_64.deb
+</code></pre>
+            </li>
+            <li>Once that is installed go back to the browser and Click on <code>Click here</code>.</li>
+            <li>Then Click <code>Start</code>.</li>
+            <li>Then follow the prompts and you're ready to go for the VPN access.</li>
+        </ol>
+
+        <h2 id="quicklinks">QuickLinks:</h2>
+        <div class="quicklinks">
+            <table>
+                <tr>
+                    <th><a href="./index.html">Home 🏠</a></th>
+                    <th><a href="./rufus.html">Rufus 🛠️</a></th>
+                    <th><a href="./bios.html">Bios ⚙️</a></th>
+                    <th><a href="./ubuntu.html">DualBoot 💻</a></th>
+                    <th><a href="./ubuntu_setup.html">Ubuntu 🐧</a></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
